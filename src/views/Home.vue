@@ -1,18 +1,28 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h1>Strat-Roulette</h1>
+    <StratDisplay />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import StratDisplay from "@/components/StratDisplay.vue";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld
+    StratDisplay
   }
 };
 </script>
+
+<style lang="scss">
+.home {
+  text-align: center;
+}
+
+h1 {
+  font-size: 40px;
+  color: #efefef;
+}
+</style>
