@@ -1,15 +1,32 @@
 import { Strat } from "@/api/types";
 
-export function LoadRandomStrat(): Promise<Strat> {
+export function LoadRandomStrat(site: string, mode: string): Promise<Strat> {
   return new Promise<Strat>(function(resolve, reject) {
-    const baseRoute = "https://strat-roulette.lol3r.net/api/strat/random?site=attacker&mode=bomb";
-    fetch(baseRoute)
+    const querySite = encodeURIComponent(site);
+    const queryMode = encodeURIComponent(mode);
+
+    const route = `https://strat-roulette.lol3r.net/api/strat/random?site=${querySite}&mode=${queryMode}`;
+    fetch(route)
       .then(response => {
         return response.json();
       })
       .then(body => {
-        console.log(body);
+        resolve(body);
+      })
+      .catch(reject);
+  });
+}
 
+export function LoadSingleStrat(id: string): Promise<Strat> {
+  return new Promise<Strat>(function(resolve, reject) {
+    const queryID = encodeURIComponent(id);
+
+    const route = `https://strat-roulette.lol3r.net/api/strat/single?id=${queryID}`;
+    fetch(route)
+      .then(response => {
+        return response.json();
+      })
+      .then(body => {
         resolve(body);
       })
       .catch(reject);
