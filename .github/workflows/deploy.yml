@@ -1,0 +1,22 @@
+on: [push]
+name: "Builds and Deploys the new Version"
+jobs:
+	build:
+		runs-on: ubuntu-latest
+		if: contains(github.ref, 'master')
+		steps:
+			- uses: actions/checkout@master
+			- name: Build and Publish Image
+				uses: elgohr/Publish-Docker-Github-Action@master
+				with:
+					name: lol3r/strat-roulette-frontend:latest
+					username: ${{ secrets.DOCKER_USERNAME }}
+					password: ${{ secrets.DOCKER_PASSWORD }}
+			- name: Deploy to production
+				uses: appleboy/ssh-action@master
+				with:
+					host: lol3r.net
+					username: root
+					key: ${{ secrets.SSH_PRIVATE_KEY }}
+					port: 22
+					script: docker pull lol3r/strat-roulette-frontend:latest && cd personal_compose/ && docker-compose up -d
