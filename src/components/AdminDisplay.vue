@@ -3,7 +3,7 @@
     <Login v-if="!this.$store.state.loggedIn" />
     <div v-else>
       <AddStrat />
-      <h2>Strats</h2>
+      <AllStrats />
     </div>
   </div>
 </template>
@@ -13,11 +13,13 @@ import { Component, Vue } from "vue-property-decorator";
 
 import Login from "@/components/admin/Login.vue";
 import AddStrat from "@/components/admin/AddStrat.vue";
+import AllStrats from "@/components/admin/AllStrats.vue";
 
 @Component({
   components: {
     Login,
-    AddStrat
+    AddStrat,
+    AllStrats
   }
 })
 export default class AdminDisplay extends Vue {

@@ -64,6 +64,37 @@ export function AddStrat(
   });
 }
 
+export function LoadAllStrats(): Promise<Strat[]> {
+  return new Promise<Strat[]>(function(resolve, reject) {
+    fetch("https://strat-roulette.lol3r.net/api/admin/strat/all", {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(json => {
+        resolve(json.strats);
+      })
+      .catch(reject);
+  });
+}
+
+export function DeleteStrat(id: string): Promise<void> {
+  return new Promise<void>(function(resolve, reject) {
+    const queryID = encodeURIComponent(id);
+    const requestURL = `https://strat-roulette.lol3r.net/api/admin/strat/delete?id=${queryID}`;
+    fetch(requestURL, {
+      method: "POST",
+      credentials: "include"
+    })
+      .then(response => {
+        resolve();
+      })
+      .catch(reject);
+  });
+}
+
 export function login(username: string, password: string): Promise<void> {
   return new Promise<void>(function(resolve, reject) {
     const reqBody = {

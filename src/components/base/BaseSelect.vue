@@ -34,8 +34,8 @@ option {
   border: none;
   border-radius: 5px;
   padding: 2px 5px;
-  font-size: 16px;
-  color: #efefef;
-  background-color: #222222;
+  font-size: var(--text-font-size);
+  color: var(--text-color, #efefef);
+  background-color: var(--secondary-background, #222222);
 }
 </style>

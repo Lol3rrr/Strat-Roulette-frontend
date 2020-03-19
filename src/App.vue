@@ -10,6 +10,13 @@
 </template>
 
 <style lang="scss">
+:root {
+  --text-color: #efefef;
+  --secondary-background: #222222;
+
+  --text-font-size: 16px;
+}
+
 html {
   background: #111111;
 }
@@ -24,5 +31,10 @@ html {
   font-size: inherit;
   color: inherit;
   text-decoration: none;
+}
+
+span {
+  font-size: var(--text-font-size);
+  color: var(--text-color, #efefef);
 }
 </style>
