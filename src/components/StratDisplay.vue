@@ -50,8 +50,8 @@ export default class StratDisplay extends Vue {
   data() {
     return {
       strat: {},
-      activeMode: "",
-      activeSite: ""
+      activeMode: "bomb",
+      activeSite: "attacker"
     };
   }
 
