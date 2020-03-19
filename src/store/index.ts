@@ -3,8 +3,8 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-import * as API from "@/api/api";
-import { Strat } from '@/api/types';
+import * as AdminAPI from "@/api/adminApi";
+import { Strat } from "@/api/types";
 
 export default new Vuex.Store({
   state: {
@@ -31,18 +31,18 @@ export default new Vuex.Store({
   },
   actions: {
     loadAllStrats(state) {
-      API.LoadAllStrats()
+      AdminAPI.LoadAllStrats()
         .then(strats => {
-          state.commit("setAllStrats", strats)
+          state.commit("setAllStrats", strats);
         })
-        .catch(console.log)
+        .catch(console.log);
     },
     deleteStrat(state, id: string) {
-      API.DeleteStrat(id)
+      AdminAPI.DeleteStrat(id)
         .then(() => {
           state.commit("removeStrat", id);
         })
-        .catch(console.log)
+        .catch(console.log);
     }
   },
   modules: {}

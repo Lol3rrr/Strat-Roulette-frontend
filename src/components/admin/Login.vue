@@ -19,7 +19,7 @@ import { Component, Vue } from "vue-property-decorator";
 import BaseButton from "@/components/base/BaseButton.vue";
 import BaseTextInput from "@/components/base/BaseTextInput.vue";
 
-import * as API from "@/api/api";
+import * as AdminAPI from "@/api/adminApi";
 
 @Component({
   components: {
@@ -36,7 +36,7 @@ export default class Login extends Vue {
   }
 
   login(): void {
-    API.login(this.$data.username, this.$data.password)
+    AdminAPI.login(this.$data.username, this.$data.password)
       .then(() => {
         this.$store.commit("setLoginStatus", true);
       })

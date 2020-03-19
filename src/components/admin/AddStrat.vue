@@ -49,7 +49,7 @@ import BaseTextarea from "@/components/base/BaseTextarea.vue";
 import BaseCheckbox from "@/components/base/BaseCheckbox.vue";
 import BaseTextInput from "@/components/base/BaseTextInput.vue";
 
-import * as API from "@/api/api";
+import * as AdminAPI from "@/api/adminApi";
 
 @Component({
   components: {
@@ -87,7 +87,7 @@ export default class AddStrat extends Vue {
     }
     const site = this.$data.stratSite;
 
-    API.AddStrat(name, description, modes, site)
+    AdminAPI.AddStrat(name, description, modes, site)
       .then(() => {
         console.log("Added strat");
       })

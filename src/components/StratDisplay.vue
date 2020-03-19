@@ -30,7 +30,7 @@
       >
     </div>
     <Strat :strat="strat" />
-    <button v-on:click="this.getNewStrat">Refresh</button>
+    <BaseButton :clicked="this.getNewStrat" text="Next Strat" />
   </div>
 </template>
 
@@ -38,12 +38,14 @@
 import { Component, Vue } from "vue-property-decorator";
 
 import Strat from "@/components/Strat.vue";
+import BaseButton from "@/components/base/BaseButton.vue";
 
 import * as API from "@/api/api";
 
 @Component({
   components: {
-    Strat
+    Strat,
+    BaseButton
   }
 })
 export default class StratDisplay extends Vue {

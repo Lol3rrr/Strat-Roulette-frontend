@@ -19,6 +19,6 @@ button {
   padding: 2px 5px;
   font-size: 18px;
   color: #dddddd;
-  background-color: #333333;
+  background-color: #222222;
 }
 </style>
