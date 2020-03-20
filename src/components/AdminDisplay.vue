@@ -38,16 +38,17 @@ export default class AdminDisplay extends Vue {
 
     const cookies = cookie.split(";");
     const cookieValues = Array<string>();
-    for (const tmpCookie in cookies) {
-      const tmpValues = tmpCookie.split(";");
+    for (const tmpCookie of cookies) {
+      const tmpValues = tmpCookie.split("=");
 
-      for (const tmpValue in tmpValues) {
+      for (const tmpValue of tmpValues) {
         cookieValues.push(tmpValue);
       }
     }
 
     for (let i = 0; i < cookieValues.length; i++) {
       if (cookieValues[i] !== "sessionID") {
+        console.log(`False for '${cookieValues[i]}'`);
         continue;
       }
 
