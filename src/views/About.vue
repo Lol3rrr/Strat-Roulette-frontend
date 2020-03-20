@@ -3,10 +3,11 @@
     <h1>About</h1>
     <div class="content">
       <p>
-        This is just a simple Strat-Roulette website made in my personal free time to have some fun and create something people might
-        actually use and like.
-        <br>
-        I'm always up for any feedback or suggestions. 
+        This is just a simple Strat-Roulette website made in my personal free
+        time to have some fun and create something people might actually use and
+        like.
+        <br />
+        I'm always up for any feedback or suggestions.
       </p>
     </div>
   </div>
