@@ -33,6 +33,29 @@ export default class AdminDisplay extends Vue {
     };
   }
 
+  mounted() {
+    const cookie = document.cookie;
+
+    const cookies = cookie.split(";");
+    const cookieValues = Array<string>();
+    for (const tmpCookie in cookies) {
+      const tmpValues = tmpCookie.split(";");
+
+      for (const tmpValue in tmpValues) {
+        cookieValues.push(tmpValue);
+      }
+    }
+
+    for (let i = 0; i < cookieValues.length; i++) {
+      if (cookieValues[i] !== "sessionID") {
+        continue;
+      }
+
+      this.$store.commit("setLoginStatus", true);
+      return;
+    }
+  }
+
   toggleAddStrat(): void {
     this.$data.addingStrat = !this.$data.addingStrat;
   }
