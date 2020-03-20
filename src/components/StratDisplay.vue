@@ -84,9 +84,13 @@ export default class StratDisplay extends Vue {
 
   private selectMode(mode: string): void {
     this.$data.activeMode = mode;
+
+    this.getNewStrat();
   }
   private selectSite(site: string): void {
     this.$data.activeSite = site;
+
+    this.getNewStrat();
   }
 
   private getNewStrat(): void {
@@ -114,15 +118,6 @@ export default class StratDisplay extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.strat {
-  width: 60vw;
-  padding: 1vh 2vw 1vh 2vw;
-  color: #dddddd;
-  background-color: #181818;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 h2 {
   margin-top: 0px;
   font-size: 22px;

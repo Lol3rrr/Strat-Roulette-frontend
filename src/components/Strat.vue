@@ -1,16 +1,14 @@
 <template>
-  <div class="strat">
-    <h2>{{ strat.name }}</h2>
-    <span>{{ strat.description }}</span>
-    <br />
-    <span>{{ strat.site }}</span>
-    <br />
-    <span>{{ modeString }}</span>
-  </div>
+  <transition name="fade" mode="out-in">
+    <div class="strat" :key="strat.id">
+      <h2>{{ strat.name }}</h2>
+      <span>{{ strat.description }}</span>
+    </div>
+  </transition>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 
 import { Strat } from "@/api/types";
 
@@ -20,44 +18,41 @@ export default class StratDisplay extends Vue {
     required: true
   })
   private strat!: Strat;
-
-  data() {
-    return {
-      modeString: ""
-    };
-  }
-
-  @Watch("strat")
-  onStratChanged() {
-    let result = "";
-
-    for (let i = 0; i < this.strat.modes.length; i++) {
-      result += this.strat.modes[i];
-
-      if (i != this.strat.modes.length - 1) {
-        result += ", ";
-      }
-    }
-
-    this.$data.modeString = result;
-  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .strat {
+  width: 60vw;
   color: #dddddd;
   background-color: #181818;
   margin-left: auto;
   margin-right: auto;
+
+  overflow: hidden;
+  max-height: 50vh;
+
+  padding: 1vh 2vw;
 }
 
 h2 {
   margin-top: 0px;
-  font-size: 22px;
+  font-size: 34px;
 }
 span {
-  font-size: 20px;
+  font-size: 30px;
+}
+
+.fade-enter-active {
+  transition: max-height 1s, padding 1s;
+}
+.fade-leave-active {
+  transition: max-height 1s, padding 1s;
+}
+.fade-enter,
+.fade-leave-to {
+  max-height: 0px;
+  padding: 0px 2vw;
 }
 </style>
