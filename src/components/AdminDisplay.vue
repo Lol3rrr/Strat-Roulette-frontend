@@ -48,7 +48,6 @@ export default class AdminDisplay extends Vue {
 
     for (let i = 0; i < cookieValues.length; i++) {
       if (cookieValues[i] !== "sessionID") {
-        console.log(`False for '${cookieValues[i]}'`);
         continue;
       }
 
